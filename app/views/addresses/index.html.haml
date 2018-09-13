@@ -1,0 +1,26 @@
+%h1 Address#Index
+
+= link_to "Agregar", new_address_path
+%table{border: 1}
+  %thead
+    %tr
+      %th Nombre
+      %th Ubicacion
+      %th Estado
+      %th Pais
+      %th Telefono 1
+      %th Telefono 2
+      %th
+  %tbody
+    - unless collection.blank?
+      - collection.each do |address|
+        %tr
+          %td= address.name
+          %td= address.location
+          %td= address.state_id
+          %td= address.country_id
+          %td= address.phone
+          %td= address.phone_2
+          %td
+            = link_to "Editar", edit_address_path(address)
+            = link_to "Eliminar", address_path(address), method: :delete, data: {confirm: "Estas seguro?"}

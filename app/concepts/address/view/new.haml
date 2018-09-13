@@ -1,0 +1,15 @@
+%h1 Address#Create
+= simple_form_for model, url: addresses_path do |f|
+  = f.input :name
+  %br
+  = f.input :location
+  %br
+  = f.input :state_id
+  %br
+  = f.input :country_id, as: :string
+  %br
+  = f.input :phone
+  %br
+  = f.input :phone_2
+  %br
+  = f.submit
